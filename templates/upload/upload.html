@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File</title>
+</head>
+<body>
+    <h1>Upload File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+  {% if output_file %}
+        <h2>Download Output File</h2>
+        <a href="{{ output_file }}" download>Download the file</a>
+    {% endif %}
+
+    {% if plot %}
+        <h2>View Plot</h2>
+        <img src="{{ plot }}" alt="Plot">
+    {% endif %}
+</body>
+</html>
